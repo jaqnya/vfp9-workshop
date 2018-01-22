@@ -1,0 +1,14 @@
+CLEAR ALL
+CLOSE ALL
+CLOSE DATABASES
+CLOSE TABLES
+
+SET CENTURY ON
+SET DATE BRITISH
+SET DELETED ON
+SET EXACT   ON
+SET TALK    OFF
+SET SAFETY  OFF
+
+SET DEFAULT TO C:\Sistemas\vfp9-workshop
+SET PATH TO Base-de-datos, Clases, Formularios, Imágenes, Programas, Proyectos

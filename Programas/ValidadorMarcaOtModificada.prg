@@ -1,0 +1,2 @@
+DEFINE CLASS ValidadorMarcaOtModificada AS ValidadorBaseModificado OF ValidadorBaseModificado.prg
+ENDDEFINE
