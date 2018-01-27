@@ -8,4 +8,4 @@ ENDDEFINE
 *!*	)
 
 *!*	INDEX ON codigo TAG 'indice1'
-*!*	INDEX on nombre TAG 'indice2'
+*!*	INDEX ON nombre TAG 'indice2'

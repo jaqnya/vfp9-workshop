@@ -7,8 +7,8 @@ DEFINE CLASS ValidadorModeloModificado AS ValidadorModelo OF ValidadorModelo.prg
             RETURN 'Código: Debe ser de tipo numérico.'
         ENDIF
 
-        IF !BETWEEN(tnCodigo, 1, 65535) THEN
-            RETURN 'Código: Debe ser un valor entre 1 y 65535.'
+        IF !BETWEEN(tnCodigo, 1, 9999) THEN
+            RETURN 'Código: Debe ser un valor entre 1 y 9999.'
         ENDIF
 
         IF !toRepositorio.CodigoExiste(tnCodigo) THEN
@@ -40,8 +40,8 @@ DEFINE CLASS ValidadorModeloModificado AS ValidadorModelo OF ValidadorModelo.prg
             RETURN 'Nombre: Debe ser como mínimo de 3 caracteres.'
         ENDIF
 
-        IF LEN(tcNombre) > 50 THEN
-            RETURN 'Nombre: Debe ser como máximo de 50 caracteres.'
+        IF LEN(tcNombre) > 30 THEN
+            RETURN 'Nombre: Debe ser como máximo de 30 caracteres.'
         ENDIF
 
         LOCAL loModelo
