@@ -20,6 +20,9 @@ REN RepositorioMaquina.prg RepositorioMaquina.prg
 REN RepositorioMarca.prg RepositorioMarca.prg
 REN RepositorioMarcaOt.prg RepositorioMarcaOt.prg
 REN RepositorioModelo.prg RepositorioModelo.prg
+REN RepositorioUsuario.prg RepositorioUsuario.prg
+REN Sesion.prg Sesion.prg
+REN Usuario.prg Usuario.prg
 REN ValidadorBase.prg ValidadorBase.prg
 REN ValidadorBaseModificado.prg ValidadorBaseModificado.prg
 REN ValidadorEstadoOt.prg ValidadorEstadoOt.prg
@@ -32,3 +35,5 @@ REN ValidadorMarcaOt.prg ValidadorMarcaOt.prg
 REN ValidadorMarcaOtModificada.prg ValidadorMarcaOtModificada.prg
 REN ValidadorModelo.prg ValidadorModelo.prg
 REN ValidadorModeloModificado.prg ValidadorModeloModificado.prg
+REN ValidadorUsuario.prg ValidadorUsuario.prg
+REN ValidadorUsuarioModificado.prg ValidadorUsuarioModificado.prg

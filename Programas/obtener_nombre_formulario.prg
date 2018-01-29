@@ -34,6 +34,8 @@ FUNCTION obtener_nombre_formulario
     DO CASE
     CASE lcFormulario = 'frmbuscarmarca'
         lcFormulario = 'FrmBuscarMarca'
+    CASE lcFormulario = 'frminiciarsesion'
+        lcFormulario = 'FrmIniciarSesion'
     CASE lcFormulario = 'frmmarca'
         lcFormulario = 'FrmMarca'
     ENDCASE
