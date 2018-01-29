@@ -12,6 +12,7 @@ REN Marca.prg Marca.prg
 REN MarcaOt.prg MarcaOt.prg
 REN Modelo.prg Modelo.prg
 REN ModeloBase.prg ModeloBase.prg
+REN obtener_nombre_formulario.prg obtener_nombre_formulario.prg
 REN principal.prg principal.prg
 REN RepositorioBase.prg RepositorioBase.prg
 REN RepositorioEstadoOt.prg RepositorioEstadoOt.prg
