@@ -4,8 +4,22 @@ DEFINE CLASS Sesion AS CUSTOM
     PROTECTED oUsuario
 
     */ ---------------------------------------------------------------------- */
-    PROTECTED FUNCTION Init
-        IF !THIS.ObtenerRuta() THEN
+    FUNCTION Init
+        LPARAMETERS tnUsuario, tcClave
+
+        * inicio { validación de parámetros }
+        IF VARTYPE(tnUsuario) <> 'N' THEN
+            MESSAGEBOX([El parámetro 'tnUsuario' debe ser de tipo numérico.], 0+16, THIS.Name + '.Init()')
+            RETURN .F.
+        ENDIF
+
+        IF VARTYPE(tcClave) <> 'C' THEN
+            MESSAGEBOX([El parámetro 'tcClave' debe ser de tipo texto.], 0+16, THIS.Name + '.Init()')
+            RETURN .F.
+        ENDIF
+        * fin { validación de parámetros }
+
+        IF !THIS.ObtenerUsuario(tnUsuario, tcClave) THEN
             RETURN .F.
         ENDIF
     ENDFUNC
@@ -65,5 +79,60 @@ DEFINE CLASS Sesion AS CUSTOM
             SELECT usuarios
             USE
         ENDIF
+    ENDFUNC
+
+    */ ---------------------------------------------------------------------- */
+    PROTECTED FUNCTION ObtenerUsuario
+        LPARAMETERS tnUsuario, tcClave
+
+        * inicio { validación de parámetros }
+        IF VARTYPE(tnUsuario) <> 'N' THEN
+            MESSAGEBOX([El parámetro 'tnUsuario' debe ser de tipo numérico.], 0+16, THIS.Name + '.ObtenerUsuario()')
+            RETURN .F.
+        ENDIF
+
+        IF VARTYPE(tcClave) <> 'C' THEN
+            MESSAGEBOX([El parámetro 'tcClave' debe ser de tipo texto.], 0+16, THIS.Name + '.ObtenerUsuario()')
+            RETURN .F.
+        ENDIF
+        * fin { validación de parámetros }
+
+        IF !THIS.ObtenerRuta() THEN
+            RETURN .F.
+        ENDIF
+
+        IF !THIS.AbrirTablas() THEN
+            RETURN .F.
+        ENDIF
+
+        LOCAL loUsuario, loRepositorio
+        loUsuario = NULL
+        loRepositorio = NEWOBJECT('RepositorioUsuario', 'RepositorioUsuario.prg')
+
+        IF VARTYPE(loRepositorio) = 'O' THEN
+            loUsuario = loRepositorio.ObtenerPorCodigo(tnUsuario)
+
+            IF VARTYPE(loUsuario) = 'O' THEN    && si encuentra un registro.
+                IF loUsuario.ObtenerClave() == LEFT(tcClave + SPACE(15), 15) THEN
+                    THIS.oUsuario = loUsuario
+                ENDIF
+            ENDIF
+        ELSE
+            MESSAGEBOX([No se pudo crear el objeto: Repositorio de Usuarios.], 0+16, THIS.Name + '.ObtenerUsuario()')
+        ENDIF
+
+        THIS.CerrarTablas()
+
+        RETURN IIF(VARTYPE(THIS.oUsuario) = 'O', .T., .F.)
+    ENDFUNC
+
+    */ ---------------------------------------------------------------------- */
+    FUNCTION ObtenerCodigo
+        RETURN IIF(VARTYPE(THIS.oUsuario) = 'O', THIS.oUsuario.ObtenerCodigo(), 0)
+    ENDFUNC
+
+    */ ---------------------------------------------------------------------- */
+    FUNCTION ObtenerNombre
+        RETURN IIF(VARTYPE(THIS.oUsuario) = 'O', THIS.oUsuario.ObtenerNombre(), '')
     ENDFUNC
 ENDDEFINE

@@ -261,7 +261,7 @@ DEFINE CLASS RepositorioBase AS CUSTOM
         * inicio { validación de parámetro }
         IF VARTYPE(tnCodigo) <> 'N' THEN
             MESSAGEBOX([El parámetro 'tnCodigo' debe ser de tipo numérico.], 0+16, THIS.Name + '.ObtenerPorCodigo()')
-            RETURN .T.
+            RETURN NULL
         ENDIF
         * fin { validación de parámetro }
 
@@ -298,7 +298,7 @@ DEFINE CLASS RepositorioBase AS CUSTOM
         * inicio { validación de parámetro }
         IF VARTYPE(tcNombre) <> 'C' THEN
             MESSAGEBOX([El parámetro 'tcNombre' debe ser de tipo texto.], 0+16, THIS.Name + '.ObtenerPorNombre()')
-            RETURN .T.
+            RETURN NULL
         ENDIF
         * fin { validación de parámetro }
 

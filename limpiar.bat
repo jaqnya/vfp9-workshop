@@ -15,3 +15,4 @@ REN unit_marcaot_modificado.prg unit_marcaot_modificado.prg
 REN unit_modelo.prg unit_modelo.prg
 REN unit_modelo_borrar.prg unit_modelo_borrar.prg
 REN unit_modelo_modificado.prg unit_modelo_modificado.prg
+REN unit_sesion.prg unit_sesion.prg
